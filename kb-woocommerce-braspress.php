@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:  Kayo Bruno - Braspress para WooCommerce
- * Plugin URI: https://github.com/kayobruno/woocommerce-braspress
- * Description: Este é um plugin não oficial da Braspress para adicionar os métodos de entrega
+ * Plugin Name:  Kayo Bruno - Braspress for WooCommerce
+ * Plugin URI: https://github.com/kayobruno/kb-woocommerce-braspress
+ * Description: This is an unofficial Braspress plugin for shipping calculation
  * Author: Kayo Bruno <kayodw@gmail.com>
  * Author URI: https://github.com/kayobruno
  * Version: 1.0.0

@@ -1,7 +1,7 @@
 (function($) {
     'use strict';
 
-    let elem_identifier = '.cpf_cnpj>input',
+    let elem_identifier = '.identifier>input',
         options 	= {
             onKeyPress: function (identifier, e, field, options) {
                 let masks = ['000.000.000-000', '00.000.000/0000-00'],
@@ -32,14 +32,18 @@
                 }
             );
 
-            if (!$('#calc_shipping_cpf').length && is_kb_braspress) {
-                if ( $('#cpf_cnpj_post').length ) {
-                    identifier_value = $('#cpf_cnpj_post').val();
+            if (!$('#calculate_shipping_identifier').length && is_kb_braspress) {
+                if ($('#shipping_identifier').length) {
+                    identifier_value = $('#shipping_identifier').val();
                 }
 
                 $('form.woocommerce-shipping-calculator p:last').before(
-                    '<p class="form-row form-row-wide cpf_cnpj" id="calc_shipping_cpf_field">' +
-                    '<input type="text" class="input-text" value="' + identifier_value + '" placeholder="CPF / CNPJ" name="calc_shipping_cpf" id="calc_shipping_cpf">' +
+                    '<p class="form-row form-row-wide identifier" id="calculate_shipping_identifier">' +
+                        '<input type="text" class="input-text" ' +
+                                'value="' + identifier_value + '" ' +
+                                'placeholder="CPF / CNPJ" ' +
+                                'name="shipping_identifier" ' +
+                                'id="shipping_identifier">' +
                     '</p>'
                 );
             }
@@ -51,4 +55,4 @@
     );
 
     $(elem_identifier).mask(initial_mask, options);
-})( jQuery );
+})(jQuery);

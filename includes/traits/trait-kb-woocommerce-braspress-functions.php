@@ -12,10 +12,10 @@ trait KB_WooCommerce_Braspress_Functions {
     }
 
     /**
-     * @param float $value
+     * @param $value
      * @return float
      */
-    public function normalize_money(float $value): float
+    public function normalize_money($value): float
     {
         $value = str_replace( '.', '', $value );
         $value = str_replace( ',', '.', $value );

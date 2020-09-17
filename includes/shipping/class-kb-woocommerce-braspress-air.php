@@ -19,7 +19,7 @@ class KB_WooCommerce_Braspress_Air extends KB_WooCommerce_Braspress_Shipping_Met
      */
     public function __construct($instance_id = 0)
     {
-        $this->id = 'kb-braspress-aeropress';
+        $this->id = 'kb-braspress-air';
         $this->title = __('Braspress Aeropress', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN);
         $this->method_title = __('Braspress Aeropress', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN);
         $this->mode = KB_WOOCOMMERCE_BRASPRESS_SHIPPING_TYPE_MODAL_TYPE_AIR;

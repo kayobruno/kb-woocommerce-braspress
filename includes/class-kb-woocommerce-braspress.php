@@ -303,19 +303,19 @@ class KB_WooCommerce_Braspress {
         $this->load_file('includes/abstracts/abstract-kb-woocommerce-braspress-shipping-method.php');
 
         $shipping_methods = array(
-            'kb-braspress-aeropress' => array(
+            'kb-braspress-air' => array(
                 'class' => 'KB_WooCommerce_Braspress_Air',
                 'file_path' => 'includes/shipping/class-kb-woocommerce-braspress-air.php'
             ),
-            'kb-braspress-rodoviario' => array(
+            'kb-braspress-road' => array(
                 'class' => 'KB_WooCommerce_Braspress_Road',
                 'file_path' => 'includes/shipping/class-kb-woocommerce-braspress-road.php'
             ),
-            'braspress-aeropress-fob' => array(
+            'braspress-air-fob' => array(
                 'class' => 'KB_WooCommerce_Braspress_Air_FOB',
                 'file_path' => 'includes/shipping/class-kb-woocommerce-braspress-air-fob.php'
             ),
-            'braspress-rodoviario-fob' => array(
+            'braspress-road-fob' => array(
                 'class' => 'KB_WooCommerce_Braspress_Road_FOB',
                 'file_path' => 'includes/shipping/class-kb-woocommerce-braspress-road-fob.php'
             ),
@@ -327,7 +327,7 @@ class KB_WooCommerce_Braspress {
                 function ($class, $method) use (&$methods) {
                     require_once($this->get_path() . $class['file_path']);
                     if (in_array('KB_WooCommerce_Braspress_Shipping_Interface', class_implements($class['class']))) {
-                        $methods[$method] = $class["class"];
+                        $methods[$method] = $class['class'];
                     }
                 }
             );

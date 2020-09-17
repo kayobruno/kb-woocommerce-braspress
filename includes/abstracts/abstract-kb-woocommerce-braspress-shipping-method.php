@@ -26,7 +26,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
     public function __construct($instance_id = 0)
     {
         $this->instance_id = absint($instance_id);
-        $description = "It's a shipping method that allow to the custumer to ship your product using %s.";
+        $description = "It's a shipping method that allow to the customer to ship your product using %s.";
         $this->method_description = sprintf(
             __($description, KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
             $this->method_title
@@ -248,21 +248,19 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
         }
 
         $shipping = $this->get_rate($package);
-        if (!isset($shipping->total_shipping)) {
-            if ('' !== $shipping['erro'] && is_cart()) {
-                $notice = sprintf(
-                    '<strong>%s:</strong><br /><u>%s</u>: <br />%s<br/>',
-                    __('Warning', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
-                    $this->title,
-                    $shipping['erro']
-                );
-                wc_add_notice($notice, 'notice');
-            }
+        if ((null === $shipping || !isset($shipping['total_shipping'])) && is_cart()) {
+            $notice = sprintf(
+                '%s: %s',
+                $this->title,
+                __('Unable to calculate shipping', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN)
+            );
+
+            wc_add_notice($notice, 'notice');
             return;
         }
 
-        $method_label = $this->get_shipping_label((int) $shipping->deadline, $package);
-        $cost = $this->normalize_money(esc_attr((string) $shipping->total_shipping));
+        $method_label = $this->get_shipping_label((int) $shipping['deadline']);
+        $cost = $this->normalize_money(esc_attr((string) $shipping['total_shipping']));
 
         if (0 === intval($cost)) {
             return;
@@ -271,7 +269,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
         $rate = array(
             'id' => $this->id,
             'label' => $method_label,
-            'cost' => $shipping->total_shipping,
+            'cost' => $shipping['total_shipping'],
             'calc_tax' => 'per_item',
         );
 
@@ -436,13 +434,12 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
 
     /**
      * @param $deadline_days
-     * @param $package
      * @return mixed
      */
-    private function get_shipping_label($deadline_days, $package)
+    private function get_shipping_label($deadline_days)
     {
-        if ('yes' === $this->show_deadline_days) {
-            return $this->get_estimating_delivery($this->title, $deadline_days, $this->get_additional_days($package));
+        if ('yes' === $this->get_option('show_deadline_days')) {
+            return $this->get_estimating_delivery($this->title, $deadline_days, $this->get_additional_days());
         }
 
         return $this->title;
@@ -453,26 +450,25 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
         $total_additional_days = intval($deadline_days) + intval($additional_days);
 
         if ( $total_additional_days > 0 ) {
-			$title .= ' (' . sprintf(
+			$title .= ' - ' . sprintf(
 			    _n(
-			        'Delivery within %d working day', 'Prazo de entrega %d dia(s)',
+			        'Delivery in %d working day', 'Delivery in %d working days',
                     $total_additional_days,
                     KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN
                 ),
                 $total_additional_days
-                ) . ')';
+                ) ;
         }
 
         return $title;
     }
 
     /**
-     * @param $package
      * @return mixed
      */
-    private function get_additional_days($package)
+    private function get_additional_days()
     {
-        return $this->additional_days;
+        return $this->get_option('additional_days');
     }
 
     /**
@@ -490,7 +486,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
 				        $(el).is(\":checked\") ? b.show() : b.hide()
 					}
 
-					$( document.body ).on( 'change', 'input[id$=\"_show_deadline_days\"]', function() {
+					$( document.body ).on('change', 'input[id$=\"_show_deadline_days\"]', function() {
 						kbWooCommerceBraspressShowHideAdditionalDays(this);
 					});
 				});
@@ -519,8 +515,8 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
             if (isset($post_data['billing_cpf_cnpj']) && $post_data['billing_cpf_cnpj'] != '') {
                 $this->set_destination_identifier($post_data['billing_cpf_cnpj']);
             }
-        } elseif (isset($_POST['calc_shipping_cpf'] ) && $_POST['calc_shipping_cpf'] != '') {
-            $this->set_destination_identifier($_POST['calc_shipping_cpf']);
+        } elseif (isset($_POST['shipping_identifier'] ) && $_POST['shipping_identifier'] != '') {
+            $this->set_destination_identifier($_POST['shipping_identifier']);
         }
 
         if ( null !== $this->destination_identifier) {

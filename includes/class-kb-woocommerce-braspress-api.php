@@ -170,7 +170,12 @@ class KB_WooCommerce_Braspress_API {
             error_log(sprintf( "WP_ERROR: %s",  $response->get_error_message()));
         } elseif ( $response['response']['code'] >= 200  && $response['response']['code'] < 300 ) {
             try {
-                $shipping = json_decode(wp_remote_retrieve_body($response), true);
+                $response = json_decode(wp_remote_retrieve_body($response), true);
+                $shipping = [
+                    'id' => $response['id'],
+                    'deadline' => $response['prazo'],
+                    'total_shipping' => $response['totalFrete'],
+                ];
             } catch (Exception $exception) {
                 error_log('KB_WooCommerce_Braspress_API invalid Reponse: ' . $exception->getMessage());
             }

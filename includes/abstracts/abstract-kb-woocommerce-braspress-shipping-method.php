@@ -94,7 +94,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
                 'title' => __('User', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
                 'type' => 'text',
                 'description' => __(
-                    'Contact braspress to request your user',
+                    'Contact braspress to request your user and password',
                     KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN
                 ),
                 'desc_tip' => true,
@@ -104,7 +104,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
                 'title' => __('Password', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
                 'type' => 'text',
                 'description' => __(
-                    'Contact braspress to request your password',
+                    'Contact braspress to request your user and password',
                     KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN
                 ),
                 'desc_tip' => true,
@@ -196,8 +196,8 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
     public function get_environments()
     {
         return array(
-            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_STAGING => __('Staging'),
-            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_PRODUCTION => __('Production'),
+            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_STAGING => __('Staging', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_PRODUCTION => __('Production', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
         );
     }
 
@@ -451,13 +451,9 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
 
         if ( $total_additional_days > 0 ) {
 			$title .= ' - ' . sprintf(
-			    _n(
-			        'Delivery in %d working day', 'Delivery in %d working days',
-                    $total_additional_days,
-                    KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN
-                ),
+			    __('Delivery in %d working day(s)', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
                 $total_additional_days
-                ) ;
+            );
         }
 
         return $title;

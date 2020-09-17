@@ -1,0 +1,151 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Kayo Bruno - Braspress for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-17 01:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.3; wp-5.5.1"
+
+#. Author URI of the plugin
+msgid "https://github.com/kayobruno"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/kayobruno/kb-woocommerce-braspress"
+msgstr ""
+
+#. Name of the plugin
+msgid "Kayo Bruno - Braspress for WooCommerce"
+msgstr ""
+
+#. Author of the plugin
+msgid "Kayo Bruno <kayodw@gmail.com>"
+msgstr ""
+
+#. Description of the plugin
+msgid "This is an unofficial Braspress plugin for shipping calculation"
+msgstr ""
+
+#: includes/abstracts/abstract-kb-woocommerce-braspress-shipping-method.php
+#. translators: %s: method title
+msgid "Staging"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "It's a shipping method that allow to the customer to ship your product using %s."
+msgstr ""
+
+msgid "Enable/Disable"
+msgstr ""
+
+msgid "Enable this shipping method"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+msgid "Environment"
+msgstr ""
+
+msgid "Each environment has a different username and password"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Contact braspress to request your user and password"
+msgstr ""
+
+msgid "Behavior Options"
+msgstr ""
+
+msgid "Show/Hide"
+msgstr ""
+
+msgid "Show estimated delivery"
+msgstr ""
+
+msgid "Additional days"
+msgstr ""
+
+msgid "Additional days to the estimated delivery."
+msgstr ""
+
+msgid "Shipping Class"
+msgstr ""
+
+msgid "If necessary, select a shipping class to apply this method."
+msgstr ""
+
+msgid "Origin Postcode"
+msgstr ""
+
+msgid "The postcode of the location your packages are delivered from."
+msgstr ""
+
+msgid "Origin Identifier"
+msgstr ""
+
+msgid "The identifier of your company"
+msgstr ""
+
+msgid "Optional Services"
+msgstr ""
+
+msgid "Message FOB (Free on Board)"
+msgstr ""
+
+msgid "Message that will be displayed when FOB(Free on Board) mode is selected."
+msgstr ""
+
+msgid "Remove on conveyor"
+msgstr ""
+
+msgid "Any Shipping Class"
+msgstr ""
+
+msgid "No Shipping Class"
+msgstr ""
+
+msgid "Unable to calculate shipping"
+msgstr ""
+
+msgid "Delivery in %d working day(s)"
+msgstr ""
+
+#: includes/shipping/class-kb-woocommerce-braspress-air-fob.php
+msgid "Braspress Air - FOB"
+msgstr ""
+
+#: includes/shipping/class-kb-woocommerce-braspress-air.php
+msgid "Braspress Air"
+msgstr ""
+
+#: includes/shipping/class-kb-woocommerce-braspress-road-fob.php
+msgid "Braspress Road - FOB"
+msgstr ""
+
+#: includes/shipping/class-kb-woocommerce-braspress-road.php
+msgid "Braspress Road"
+msgstr ""
+
+#: includes/class-kb-woocommerce-braspress.php
+msgid "Identifier"
+msgstr ""

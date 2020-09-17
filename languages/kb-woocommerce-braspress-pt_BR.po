@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kayo Bruno - Braspress for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-17 01:52+0000\n"
+"PO-Revision-Date: 2020-09-18 03:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: Português do Brasil\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.3; wp-5.5.1"
+
+#. Author URI of the plugin
+msgid "https://github.com/kayobruno"
+msgstr "https://github.com/kayobruno"
+
+#. URI of the plugin
+msgid "https://github.com/kayobruno/kb-woocommerce-braspress"
+msgstr "https://github.com/kayobruno/kb-woocommerce-braspress"
+
+#. Name of the plugin
+msgid "Kayo Bruno - Braspress for WooCommerce"
+msgstr "Kayo Bruno - Braspress para WooCommerce"
+
+#. Author of the plugin
+msgid "Kayo Bruno <kayodw@gmail.com>"
+msgstr "Kayo Bruno <kayodw@gmail.com>"
+
+#. Description of the plugin
+msgid "This is an unofficial Braspress plugin for shipping calculation"
+msgstr "Este é um plugin Braspress não oficial para cálculo de frete"
+
+#. translators: %s: method title
+#: includes/abstracts/abstract-kb-woocommerce-braspress-shipping-method.php
+msgid "Staging"
+msgstr "Homologação"
+
+msgid "Production"
+msgstr "Produção"
+
+msgid ""
+"It's a shipping method that allow to the customer to ship your product using "
+"%s."
+msgstr ""
+"É um método de envio que permite ao cliente enviar seu produto usando %s."
+
+msgid "Enable/Disable"
+msgstr "Habilitar/Desabilitar"
+
+msgid "Enable this shipping method"
+msgstr "Habilitar este método de envio"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr "Isso controla o título que o usuário vê durante o checkout."
+
+msgid "Environment"
+msgstr "Ambiente"
+
+msgid "Each environment has a different username and password"
+msgstr "Cada ambiente tem um nome de usuário e senha diferentes"
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Contact braspress to request your user and password"
+msgstr "Entre em contato com a braspress para solicitar seu usuário e senha"
+
+msgid "Behavior Options"
+msgstr "Opções de comportamento"
+
+msgid "Show/Hide"
+msgstr "Mostrar/Ocultar"
+
+msgid "Show estimated delivery"
+msgstr "Exibir prazo de entrega"
+
+msgid "Additional days"
+msgstr "Dias adicionais"
+
+msgid "Additional days to the estimated delivery."
+msgstr "Dias adicionais para a entrega estimada."
+
+msgid "Shipping Class"
+msgstr "Classe de envio"
+
+msgid "If necessary, select a shipping class to apply this method."
+msgstr ""
+"Se necessário, selecione uma classe de envio para aplicar neste método."
+
+msgid "Origin Postcode"
+msgstr "Código postal de Origem"
+
+msgid "The postcode of the location your packages are delivered from."
+msgstr "O código postal do local de onde seus pacotes são entregues."
+
+msgid "Origin Identifier"
+msgstr "CPF / CNPJ de Origem"
+
+msgid "The identifier of your company"
+msgstr "CNPJ da sua empresa"
+
+msgid "Optional Services"
+msgstr "Serviços Opicionais"
+
+msgid "Message FOB (Free on Board)"
+msgstr "Mensagem FOB (Free on Board)"
+
+msgid ""
+"Message that will be displayed when FOB(Free on Board) mode is selected."
+msgstr ""
+"Mensagem que será exibida quando o modo FOB (Free on Board) for selecionado."
+
+msgid "Remove on conveyor"
+msgstr "Coletar na transportadora"
+
+msgid "Any Shipping Class"
+msgstr "Qualquer classe de envio"
+
+msgid "No Shipping Class"
+msgstr "Sem classe de envio"
+
+msgid "Unable to calculate shipping"
+msgstr "Não foi possível calcular o frete"
+
+msgid "Delivery in %d working day(s)"
+msgstr "Entregue em %d dia(s)"
+
+#: includes/shipping/class-kb-woocommerce-braspress-air-fob.php
+msgid "Braspress Air - FOB"
+msgstr "Braspress Aeropress - FOB"
+
+#: includes/shipping/class-kb-woocommerce-braspress-air.php
+msgid "Braspress Air"
+msgstr "Braspress Aeropress"
+
+#: includes/shipping/class-kb-woocommerce-braspress-road-fob.php
+msgid "Braspress Road - FOB"
+msgstr "Braspress Rodoviário - FOB"
+
+#: includes/shipping/class-kb-woocommerce-braspress-road.php
+msgid "Braspress Road"
+msgstr "Braspress Rodoviário"
+
+#: includes/class-kb-woocommerce-braspress.php
+msgid "Identifier"
+msgstr "CPF / CNPJ"

@@ -194,11 +194,6 @@ class KB_WooCommerce_Braspress {
         );
     }
 
-    function customize_checkout_field_process()
-    {
-        // TODO: ADD AN IDENTIFIER VALIDATION
-    }
-
     /**
      * This method, add a identifier custom field to checkout fields.
      *

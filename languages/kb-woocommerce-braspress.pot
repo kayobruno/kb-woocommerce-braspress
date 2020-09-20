@@ -149,3 +149,7 @@ msgstr ""
 #: includes/class-kb-woocommerce-braspress.php
 msgid "Identifier"
 msgstr ""
+
+#: includes/class-kb-woocommerce-braspress-api.php
+msgid "The shipping could not be calculated because information is missing"
+msgstr ""

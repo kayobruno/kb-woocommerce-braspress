@@ -133,14 +133,11 @@ class KB_WooCommerce_Braspress_API {
     /**
      * @param array $package
      * @return mixed|null
+     * @throws Exception
      */
     public function get_shipping(array $package)
     {
         $shipping = null;
-		if (!$this->is_available()) {
-			return $shipping;
-		}
-
         $args = array(
             'cnpjRemetente' => $this->get_origin_identifier(),
             'cnpjDestinatario' => $this->remove_chars($this->get_destination_identifier()),
@@ -153,6 +150,10 @@ class KB_WooCommerce_Braspress_API {
             'volumes' => $this->get_total_package(),
             'cubagem' => $this->get_cubage($package),
         );
+
+        if (!$this->is_available($args)) {
+            throw new \Exception(__('The shipping could not be calculated because information is missing'));
+        }
 
         $params = array(
             'headers' => array(
@@ -184,9 +185,17 @@ class KB_WooCommerce_Braspress_API {
         return $shipping;
     }
 
-    private function is_available()
+    /**
+     * @param array $args
+     * @return bool
+     */
+    private function is_available(array $args)
     {
-       // TODO: Validar todos os paramns
+        foreach ($args as $arg) {
+            if (empty($arg)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -216,6 +225,7 @@ class KB_WooCommerce_Braspress_API {
 
     /**
      * @param mixed $environment
+     * @throws Exception
      */
     public function set_environment($environment): void
     {
@@ -225,8 +235,7 @@ class KB_WooCommerce_Braspress_API {
         );
 
         if (!array_key_exists($environment, $environments)) {
-            // TODO: tratar error
-            die('error');
+            throw new \Exception(__('Unable to calculate shipping'));
         }
 
         $uri = $environments[$this->environment] . 'v1/cotacao/calcular/json';

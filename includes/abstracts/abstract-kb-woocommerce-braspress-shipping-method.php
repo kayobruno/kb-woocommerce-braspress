@@ -247,8 +247,26 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
             return;
         }
 
-        $shipping = $this->get_rate($package);
-        if ((null === $shipping || !isset($shipping['total_shipping'])) && is_cart()) {
+        $shipping = null;
+        try {
+            $shipping = $this->get_rate($package);
+        } catch (\Exception $e) {
+           if (is_cart()) {
+               $notice = sprintf(
+                   '%s: %s',
+                   $this->title,
+                   __($e->getMessage(), KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN)
+               );
+               wc_add_notice($notice, 'notice');
+           }
+            return;
+        }
+
+        if (null === $shipping) {
+            return;
+        }
+
+        if (!isset($shipping['total_shipping']) && is_cart()) {
             $notice = sprintf(
                 '%s: %s',
                 $this->title,
@@ -281,6 +299,7 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
      *
      * @param $package
      * @return array
+     * @throws Exception
      */
     protected function get_rate($package)
     {

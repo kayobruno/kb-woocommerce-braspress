@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Kayo Bruno - Braspress for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-17 01:52+0000\n"
-"PO-Revision-Date: 2020-09-18 03:15+0000\n"
+"PO-Revision-Date: 2020-09-20 02:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: Português do Brasil\n"
 "Language: pt_BR\n"
@@ -154,3 +154,7 @@ msgstr "Braspress Rodoviário"
 #: includes/class-kb-woocommerce-braspress.php
 msgid "Identifier"
 msgstr "CPF / CNPJ"
+
+#: includes/class-kb-woocommerce-braspress-api.php
+msgid "The shipping could not be calculated because information is missing"
+msgstr "Não foi possível calcular o frete porque faltam informações"

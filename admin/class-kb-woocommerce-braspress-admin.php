@@ -89,7 +89,7 @@ class KB_WooCommerce_Braspress_Admin {
         $scripts = array(
             array(
                 'handle' => 'input_mask',
-                'src' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js',
+                'src' => plugin_dir_url(__FILE__) . '../assets/js/jquery.mask.js',
                 'dependencies' => array('jquery'),
                 'version' => $this->version,
                 'in_footer' => true,

@@ -204,6 +204,10 @@ class KB_WooCommerce_Braspress_API {
      */
     public function get_base_uri()
     {
+        $environments = $this->get_environments();
+        $uri = $environments[$this->environment] . 'v1/cotacao/calcular/json';
+        $this->set_base_uri($uri);
+
         return $this->base_uri;
     }
 
@@ -229,17 +233,11 @@ class KB_WooCommerce_Braspress_API {
      */
     public function set_environment($environment): void
     {
-        $environments = array(
-            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_STAGING => 'https://hml-api.braspress.com/',
-            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_PRODUCTION => 'https://api.braspress.com/',
-        );
+        $environments = $this->get_environments();
 
         if (!array_key_exists($environment, $environments)) {
             throw new \Exception(__('Unable to calculate shipping'));
         }
-
-        $uri = $environments[$this->environment] . 'v1/cotacao/calcular/json';
-        $this->set_base_uri($uri);
 
         $this->environment = $environment;
     }
@@ -482,5 +480,16 @@ class KB_WooCommerce_Braspress_API {
     public function set_timeout($timeout): void
     {
         $this->timeout = $timeout;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function get_environments()
+    {
+        return array(
+            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_STAGING => 'https://hml-api.braspress.com/',
+            KB_WOOCOMMERCE_BRASPRESS_ENVIRONMENT_PRODUCTION => 'https://api.braspress.com/',
+        );
     }
 }

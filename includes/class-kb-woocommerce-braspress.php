@@ -164,18 +164,6 @@ class KB_WooCommerce_Braspress {
                 'priority' => 10,
                 'args' => 1,
             ),
-            'woocommerce_checkout_process' => array(
-                'component' => $this,
-                'callback' => 'customize_checkout_field_process',
-                'priority' => 10,
-                'args' => 1,
-            ),
-            'woocommerce_after_shipping_calculator' => array(
-                'component' => $this,
-                'callback' => 'add_hidden_identifier_field',
-                'priority' => 10,
-                'args' => 1,
-            ),
         );
 
         array_walk(
@@ -203,48 +191,20 @@ class KB_WooCommerce_Braspress {
      */
     public function add_identifier_field(array $fields)
     {
-        $fields['billing']['billing_cpf_cnpj'] = array(
-            'ui-mask' => '999.999.999-99',
-            'label' => __('Identifier', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
-            'priority' => 1,
-            'maxlength' => '18',
-            'required' => true,
-            'placeholder' => __('Identifier', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
-            'class' => array('address-field', 'update_totals_on_change', 'cpf_cnpj'),
-            'default' => WC()->session->get('_session_cpf_cnpj'),
-        );
+        if (!class_exists('Extra_Checkout_Fields_For_Brazil') ) {
+            $fields['billing']['billing_cpf'] = array(
+                'ui-mask' => '999.999.999-99',
+                'label' => __('Identifier', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+                'priority' => 1,
+                'maxlength' => '18',
+                'required' => true,
+                'placeholder' => __('Identifier', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+                'class' => array('address-field', 'update_totals_on_change', 'cpf_cnpj'),
+                'default' => WC()->session->get('_session_identifier'),
+            );
+        }
 
         return $fields;
-    }
-
-    public function add_hidden_identifier_field()
-    {
-        $destination_identifier = null;
-        if (isset($_POST['post_data'])) {
-            $post_data = array();
-            parse_str($_POST['post_data'], $post_data);
-
-            if (isset($post_data['billing_cpf_cnpj']) && $post_data['billing_cpf_cnpj'] != '') {
-                $destination_identifier = $post_data['billing_cpf_cnpj'];
-            }
-        } elseif (
-            isset($_POST['calc_shipping_cpf']) &&
-            preg_replace('/[^0-9]/', '', $_POST['calc_shipping_cpf']) != ''
-        ) {
-            $destination_identifier = preg_replace('/[^0-9]/', '', $_POST['calc_shipping_cpf']);
-        }
-
-        $cpf_cnpj_session = WC()->session->get('_session_cpf_cnpj');
-        if (null !== $destination_identifier) {
-            WC()->session->set('_session_cpf_cnpj', $destination_identifier);
-        } elseif (is_null($destination_identifier)) {
-            $destination_identifier = $cpf_cnpj_session;
-        }
-
-        echo sprintf(
-            '<input id="identifier_post" value="%s" type="hidden" />',
-            $destination_identifier
-        );
     }
 
     /**

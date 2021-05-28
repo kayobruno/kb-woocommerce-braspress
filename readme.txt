@@ -22,10 +22,6 @@ Este é um plugin não oficial da Braspress, onde o desenvolvedor não possui ne
  - Braspress Aeropress - FOB
  - Braspress Rodoviário - FOB
 
-= Instalação: =
-
-Confira o guia de instalação e configuração na aba [Installation](http://wordpress.org/extend/plugins/kb-woocommerce-braspress/installation/).
-
 = Compatibilidade =
 
 Requer WooCommerce 3.0 ou posterior.
@@ -37,3 +33,8 @@ Requer WooCommerce 3.0 ou posterior.
 = Configuração do Plugin =
 
 Para que o plugin funcione você precisa entrar em contato com a Braspress e solicitar os dados de acesso da API deles.
+
+== Screenshots ==
+
+1. Exemplo dos métodos habilitados nas áreas de entrega
+2. Exemplo da tela de configurações dos métodos de entrega.

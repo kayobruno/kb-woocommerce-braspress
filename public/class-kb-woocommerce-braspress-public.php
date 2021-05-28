@@ -95,13 +95,6 @@ class KB_WooCommerce_Braspress_Public {
                 'version' => $this->version,
                 'in_footer' => true,
             ),
-            array(
-                'handle' => 'validate_identifier',
-                'src' => plugin_dir_url(__FILE__) . 'js/kb-woocommerce-braspress-identifier-validate.js',
-                'dependencies' => array('jquery'),
-                'version' => $this->version,
-                'in_footer' => true,
-            ),
         );
 
         array_walk($scripts,

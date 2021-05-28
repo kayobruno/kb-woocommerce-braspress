@@ -524,32 +524,21 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
     public function get_destination_identifier(): string
     {
         $data = isset($_POST['post_data']) ? sanitize_text_field($_POST['post_data']) : '';
-        $shipping_identifier = isset($_POST['shipping_identifier'])
-            ? sanitize_text_field($_POST['shipping_identifier'])
-            : ''
+
+        $billing_cpf = isset($_POST['billing_cpf'])
+            ? sanitize_text_field($_POST['billing_cpf'])
+            : $this->default_identifier()
         ;
 
         if (!empty($data)) {
-
             $post_data = array();
-
             parse_str($data, $post_data);
-            if (isset($post_data['billing_cpf_cnpj']) && $post_data['billing_cpf_cnpj'] != '') {
-                $this->set_destination_identifier($post_data['billing_cpf_cnpj']);
+            if (isset($post_data['billing_cpf']) && $post_data['billing_cpf'] != '') {
+                $billing_cpf = $post_data['billing_cpf'];
             }
-        } elseif (isset($shipping_identifier) && $shipping_identifier != '') {
-            $this->set_destination_identifier($shipping_identifier);
         }
 
-        if ( null !== $this->destination_identifier) {
-            WC()->session->set('_session_identifier', $this->destination_identifier);
-        } else {
-            $session_identifier = '';
-            if (isset(WC()->session)) {
-                $session_identifier = WC()->session->get('_session_identifier');
-            }
-            $this->destination_identifier = $session_identifier;
-        }
+        $this->set_destination_identifier($billing_cpf);
 
         return $this->remove_chars($this->destination_identifier);
     }

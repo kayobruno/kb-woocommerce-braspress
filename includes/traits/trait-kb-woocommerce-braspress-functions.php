@@ -29,7 +29,16 @@ trait KB_WooCommerce_Braspress_Functions {
      */
     public function fix_format($value)
     {
-        $value = str_replace(',', '.', $value);
-        return $value;
+        return str_replace(',', '.', $value);
+    }
+
+    /**
+     * Random CPF
+     *
+     * @return string
+     */
+    public function default_identifier()
+    {
+        return '44750472000';
     }
 }

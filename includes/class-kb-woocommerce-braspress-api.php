@@ -387,9 +387,9 @@ class KB_WooCommerce_Braspress_API {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function get_destination_identifier()
+    public function get_destination_identifier(): string
     {
         return $this->destination_identifier;
     }

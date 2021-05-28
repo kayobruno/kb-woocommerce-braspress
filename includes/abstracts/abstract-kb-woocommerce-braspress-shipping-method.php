@@ -457,11 +457,12 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
      */
     private function get_shipping_label($deadline_days)
     {
+        $title = $this->get_option('title', __('Braspress Road', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN));
         if ('yes' === $this->get_option('show_deadline_days')) {
-            return $this->get_estimating_delivery($this->title, $deadline_days, $this->get_additional_days());
+            return $this->get_estimating_delivery($title, $deadline_days, $this->get_additional_days());
         }
 
-        return $this->title;
+        return $title;
     }
 
     function get_estimating_delivery( $title, $deadline_days, $additional_days = 0)

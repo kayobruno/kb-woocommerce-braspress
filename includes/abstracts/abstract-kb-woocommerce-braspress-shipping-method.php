@@ -129,6 +129,17 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
                 'default' => '0',
                 'placeholder' => '0',
             ),
+            'deadline_message' => array(
+                'title' => __('Deadline Message', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+                'type' => 'text',
+                'description' => __(
+                    'Deadline display message. Use %d to display the number of days',
+                    KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN
+                ),
+                'desc_tip' => true,
+                'default' => __('Up to %d working days', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+                'placeholder' => __('Up to %d working days', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+            ),
             'shipping_class_id' => array(
                 'title' => __('Shipping Class', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
                 'type' => 'select',
@@ -470,8 +481,9 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
         $total_additional_days = intval($deadline_days) + intval($additional_days);
 
         if ( $total_additional_days > 0 ) {
-			$title .= ' - ' . sprintf(
-			    __('Delivery in %d working day(s)', KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
+            $deadline_message = $this->get_option('deadline_message', 'Delivery in %d working day(s)');
+            $title .= ' - ' . sprintf(
+			    __($deadline_message, KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN),
                 $total_additional_days
             );
         }
@@ -498,7 +510,9 @@ abstract class KB_WooCommerce_Braspress_Shipping_Method extends WC_Shipping_Meth
             wc_enqueue_js("
 				jQuery(function($) {
 					function kbWooCommerceBraspressShowHideAdditionalDays(el) {						
+				        var a = jQuery('input[id$=\"_deadline_message\"]').closest(\"tr\");
 				        var b = jQuery('input[id$=\"_additional_days\"]').closest(\"tr\");
+				        $(el).is(\":checked\") ? a.show() : a.hide()
 				        $(el).is(\":checked\") ? b.show() : b.hide()
 					}
 

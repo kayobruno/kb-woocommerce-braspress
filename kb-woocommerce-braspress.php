@@ -5,7 +5,7 @@
  * Description: This is an unofficial Braspress plugin for shipping calculation
  * Author: Kayo Bruno <kayodw@gmail.com>
  * Author URI: https://github.com/kayobruno
- * Version: 1.2.0
+ * Version: 1.2.2
  * License: GPLv3 or later
  * Text Domain: kb-woocommerce-braspress
  * Domain Path: /languages
@@ -15,7 +15,7 @@
 
 defined('ABSPATH') || exit;
 
-define('KB_WOOCOMMERCE_BRASPRESS_VERSION', '1.0.0');
+define('KB_WOOCOMMERCE_BRASPRESS_VERSION', '1.2.2');
 define('KB_WOOCOMMERCE_BRASPRESS_TEXT_DOMAIN', 'kb-woocommerce-braspress');
 
 // Environments

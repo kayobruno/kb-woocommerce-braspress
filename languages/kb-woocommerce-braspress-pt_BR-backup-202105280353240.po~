@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Kayo Bruno - Braspress for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-17 01:52+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2020-09-20 02:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: Português do Brasil\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,148 +16,145 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://github.com/kayobruno"
-msgstr ""
+msgstr "https://github.com/kayobruno"
 
 #. URI of the plugin
 msgid "https://github.com/kayobruno/kb-woocommerce-braspress"
-msgstr ""
+msgstr "https://github.com/kayobruno/kb-woocommerce-braspress"
 
 #. Name of the plugin
 msgid "Kayo Bruno - Braspress for WooCommerce"
-msgstr ""
+msgstr "Kayo Bruno - Braspress para WooCommerce"
 
 #. Author of the plugin
 msgid "Kayo Bruno <kayodw@gmail.com>"
-msgstr ""
+msgstr "Kayo Bruno <kayodw@gmail.com>"
 
 #. Description of the plugin
 msgid "This is an unofficial Braspress plugin for shipping calculation"
-msgstr ""
+msgstr "Este é um plugin Braspress não oficial para cálculo de frete"
 
-#: includes/abstracts/abstract-kb-woocommerce-braspress-shipping-method.php
 #. translators: %s: method title
+#: includes/abstracts/abstract-kb-woocommerce-braspress-shipping-method.php
 msgid "Staging"
-msgstr ""
+msgstr "Homologação"
 
 msgid "Production"
-msgstr ""
+msgstr "Produção"
 
-msgid "It's a shipping method that allow to the customer to ship your product using %s."
+msgid ""
+"It's a shipping method that allow to the customer to ship your product using "
+"%s."
 msgstr ""
+"É um método de envio que permite ao cliente enviar seu produto usando %s."
 
 msgid "Enable/Disable"
-msgstr ""
+msgstr "Habilitar/Desabilitar"
 
 msgid "Enable this shipping method"
-msgstr ""
+msgstr "Habilitar este método de envio"
 
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 msgid "This controls the title which the user sees during checkout."
-msgstr ""
+msgstr "Isso controla o título que o usuário vê durante o checkout."
 
 msgid "Environment"
-msgstr ""
+msgstr "Ambiente"
 
 msgid "Each environment has a different username and password"
-msgstr ""
+msgstr "Cada ambiente tem um nome de usuário e senha diferentes"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
 msgid "Contact braspress to request your user and password"
-msgstr ""
+msgstr "Entre em contato com a braspress para solicitar seu usuário e senha"
 
 msgid "Behavior Options"
-msgstr ""
+msgstr "Opções de comportamento"
 
 msgid "Show/Hide"
-msgstr ""
+msgstr "Mostrar/Ocultar"
 
 msgid "Show estimated delivery"
-msgstr ""
+msgstr "Exibir prazo de entrega"
 
 msgid "Additional days"
-msgstr ""
-
-msgid "Deadline Message"
-msgstr ""
+msgstr "Dias adicionais"
 
 msgid "Additional days to the estimated delivery."
-msgstr ""
-
-msgid "Deadline display message. Use %d to display the number of days"
-msgstr ""
-
-msgid "Up to %d working days"
-msgstr ""
+msgstr "Dias adicionais para a entrega estimada."
 
 msgid "Shipping Class"
-msgstr ""
+msgstr "Classe de envio"
 
 msgid "If necessary, select a shipping class to apply this method."
 msgstr ""
+"Se necessário, selecione uma classe de envio para aplicar neste método."
 
 msgid "Origin Postcode"
-msgstr ""
+msgstr "Código postal de Origem"
 
 msgid "The postcode of the location your packages are delivered from."
-msgstr ""
+msgstr "O código postal do local de onde seus pacotes são entregues."
 
 msgid "Origin Identifier"
-msgstr ""
+msgstr "CPF / CNPJ de Origem"
 
 msgid "The identifier of your company"
-msgstr ""
+msgstr "CNPJ da sua empresa"
 
 msgid "Optional Services"
-msgstr ""
+msgstr "Serviços Opicionais"
 
 msgid "Message FOB (Free on Board)"
-msgstr ""
+msgstr "Mensagem FOB (Free on Board)"
 
-msgid "Message that will be displayed when FOB(Free on Board) mode is selected."
+msgid ""
+"Message that will be displayed when FOB(Free on Board) mode is selected."
 msgstr ""
+"Mensagem que será exibida quando o modo FOB (Free on Board) for selecionado."
 
 msgid "Remove on conveyor"
-msgstr ""
+msgstr "Coletar na transportadora"
 
 msgid "Any Shipping Class"
-msgstr ""
+msgstr "Qualquer classe de envio"
 
 msgid "No Shipping Class"
-msgstr ""
+msgstr "Sem classe de envio"
 
 msgid "Unable to calculate shipping"
-msgstr ""
+msgstr "Não foi possível calcular o frete"
 
 msgid "Delivery in %d working day(s)"
-msgstr ""
+msgstr "Entregue em %d dia(s)"
 
 #: includes/shipping/class-kb-woocommerce-braspress-air-fob.php
 msgid "Braspress Air - FOB"
-msgstr ""
+msgstr "Braspress Aeropress - FOB"
 
 #: includes/shipping/class-kb-woocommerce-braspress-air.php
 msgid "Braspress Air"
-msgstr ""
+msgstr "Braspress Aeropress"
 
 #: includes/shipping/class-kb-woocommerce-braspress-road-fob.php
 msgid "Braspress Road - FOB"
-msgstr ""
+msgstr "Braspress Rodoviário - FOB"
 
 #: includes/shipping/class-kb-woocommerce-braspress-road.php
 msgid "Braspress Road"
-msgstr ""
+msgstr "Braspress Rodoviário"
 
 #: includes/class-kb-woocommerce-braspress.php
 msgid "Identifier"
-msgstr ""
+msgstr "CPF / CNPJ"
 
 #: includes/class-kb-woocommerce-braspress-api.php
 msgid "The shipping could not be calculated because information is missing"
-msgstr ""
+msgstr "Não foi possível calcular o frete porque faltam informações"
